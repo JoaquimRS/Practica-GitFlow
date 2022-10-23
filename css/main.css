@@ -57,6 +57,7 @@ main header ul li {
 
 main header ul li a {
   all: unset;
+  cursor: pointer;
 }
 
 main article {

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+variable=`npx eslint *.html`
+
+echo $variable
+
+if $variable ; then
+    echo "Formato correcto"
+else 
+    echo "Formato incorrecto"
+    exit 1
+fi
