@@ -1,10 +1,460 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Practica GitFlow</title>
+    <meta charset="UTF-8">
+    <title>Practica GitFlow</title>
+    <style type="text/css">
+        h1,
+        h2,
+        h3 {
+            border-bottom: 1px solid black;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        img {
+            width: 300px;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Practica GitFlow</h1>
+    <header>
+        <h1>Practica GitFlow JoaquimRS</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#teoria">Teoría</a></li>
+            <li><a href="#joaquimrs">JoaquimRS</a></li>
+            <li><a href="#ximo-ribera">ximo-ribera</a></li>
+            <li><a href="#donyet960">Donyet960</a></li>
+            <li><a href="#joaquimrs2">JoaquimRS 2</a></li>
+        </ul>
+    </nav>
+    <main>
+        <article id="teoria">
+            <h2>Teoría</h2>
+            <section>
+                <h3>Que es git?</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Git es un software de control de versiones muy conocido y el más
+                            utilizado del mundo. Su creador, Linus Torvalds también conocido
+                            como el creador del kernel del sistema operativo Linux, su idea
+                            principal era la de un motor de bajo nivel sobre el cual otros
+                            pudieran escribir la interfaz de usuario, no obstante git con el
+                            tiempo se ha convertido en un sistema de control de versiones con
+                            funcionalidad plena.</p>
+                        <img src="img/linus_torvalds.jpg">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Como funciona git?</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Para entender como funciona git tenemos
+                            que tener claro el concepto de ramas.
+                            Una rama podríamos describirla como un
+                            histórico de cambios realizados sobre un
+                            código especifico. Podemos distribuir estas
+                            ramas como queramos para tener un mejor
+                            control y orden de nuestro código, a esto se les llaman metodologías como por ejemplo Git
+                            Flow.
+                            Git nos permite recuperar el estado anterior de nuestro código para solucionar un error o
+                            devolver el
+                            código al punto en el que funcionaba bien.</p>
+                        <img src="img/git_branches.png">
+                        <p>Git tiene muchas ventajas</p>
+                        <ul></ul>
+                        <li>Desarrollo simultáneo</li>
+                        <li>Muy potente</li>
+                        <li>Versiones más rápidas</li>
+                        <li>Software Libre</li>
+                        <li>Soporte técnico solido</li>
+                        <li>Funciona con cualquier equipo</li>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Que es la metodología GitFlow?</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Git Flow es un modelimg/35.pngoativo de creación de ramas en Git en el que se utilizan ramas de
+                            función y varias ramas principales. Su creador fue Vincent Driessen.</p>
+                        <p>Es una estrategia creada para mejorar la organización de las ramas dentro del repositorio y
+                            dar
+                            más fluidez al proceso de nuevos Features y Releases</p>
+
+                        <p>Gitflow presenta una solución más robusta que git, sobretodo para grandes proyectos o
+                            proyectos
+                            que requieren actualizaciones constantes. También se utiliza cuando existe una gran cantidad
+                            de
+                            personas trabajando dentro de un repositorio.</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Como funciona?</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Hay dos tipos de ramas dentro de Git Flow:</p>
+                        <ol>
+                            <li>Principales: Master y Develop</li>
+                            <li>Soporte: Feature, Release y Hotfix</li>
+                        </ol>
+                        <p>Para cada rama hay existen unas reglas específicas:</p>
+                        <ul>
+                            <li>Master/Main
+                                <ul>
+                                    <li>Cualquier commit que pongamos en esta rama debe estar preparado para subir a
+                                        producción</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Develop
+                                <ul>
+                                    <li>Rama en la que está el código que conformará la siguiente versión planificada
+                                        del
+                                        proyecto</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Feature
+                                <ul>
+                                    <li>Nuevas funcionalidades de la aplicación</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Release
+                                <ul>
+                                    <li>Se realizan los últimos ajustes y se corrigen
+                                        los últimos bugs antes de pasar el código a
+                                        producción</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Hotfix
+                                <ul>
+                                    <li>Se corrigen los errores y bugs que hayan en
+                                        producción</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <img src="img/gitflow.png">
+                    </div>
+                </div>
+            </section>
+        </article>
+        <article id="joaquimrs">
+            <h2>JoaquimRS</h2>
+            <section>
+                <h3>Crear repositorio</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Para crear un repositorio ejecutamos el comando</p>
+                        <i>git init</i><br><br>
+                        <img src="img/1.png">
+                        <p>Esto generará la carpeta oculta .git y creara el nombre de la rama que tengamos asignada por
+                            defecto, en mi caso main</p>
+                        <i>(git config --global init.defaultBranch main para modificar el nombre de la rama por defecto
+                            a
+                            main)</i><br><br>
+                        <p>Ahora crearemos un fichero README.md con la descripción de nuestro proyecto y haremos el
+                            primer commit</p>
+                        <img src="img/2.png">
+                        <p>Luego tendremos que crear un repositorio en github, en mi caso lo he llamado Practica-GitFlow
+                        </p>
+                        <img src="img/3.png">
+                        <p>El siguiente paso sera enlazar nuestro repositorio local con el remoto de github, para ello
+                            utilizaremos el comando</p>
+                        <i>git remote add origin -link-</i><br><br>
+                        <img src="img/4.png">
+                        <p>El -link- es la url que nos ofrece github cuando creamos el repositorio en mi caso:</p>
+                        <p>https://github.com/JoaquimRS/Practica-GitFlow.git</p>
+                        <p>Ahora publicamos nuestra rama local main al repositorio remoto con el comando</p>
+                        <i>git push origin main</i><br><br>
+                        <p>Seguidamente nos pedirá el token de nuestra cuenta de github</p>
+                        <p>(https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-datasecure/
+                            creating-a-personal-access-token para crear un token personal en github)</p>
+                        <img src="img/5.png">
+                        <p>Y finalmente si vamos al repositorio que hemos creado el resultado será el siguiente:</p>
+                        <img src="img/6.png">
+                        <p>Como vamos a tener 3 usuarios en nuestro repositorio debemos añadirlos como colaboradores
+                            Para ello vamos a Settings → Collaborators → Add People</p>
+                        <img src="img/7.png">
+                        <p>Ahora introducimos los usuarios que van a colaborar en nuestro proyecto. En mi caso
+                            ximo-ribera,
+                            Donyet960</p>
+                        <img src="img/8.png">
+                        <img src="img/9.png">
+                        <p>Git nos enviara un correo para aceptar la invitación, mientras tanto los usuarios estaran
+                            pendientes
+                            de invitación.</p>
+                        <img src="img/10.png">
+                        <img src="img/11.png">
+                        <p>Para poder publicar los cambios con diferentes usuarios tendremos que hacer lo siguiente</p>
+                        <p>Borrar el origin</p>
+                        <i>git remote remove origin</i><br><br>
+                        <p>Y ahora añadir a todos los usuarios con el nombre del origin con su nombre de usuario</p>
+                        <i>git remote add JoaquimRS https://github.com/JoaquimRS/Practica-GitFlow.git</i><br><br>
+                        <i>git remote add ximo-ribera
+                            https://ximo-ribera@github.com/JoaquimRS/Practica-GitFlow.git</i><br><br>
+                        <i>git remote add Donyet960 https://Donyet960@github.com/JoaquimRS/Practica-GitFlow.git</i><br><br>
+                        <img src="img/12.png">
+                        <p>Así cada vez que hagamos el push tendremos que poner el nombre del usuario como origin para
+                            diferenciarlo, y seguidamente pedirá el token de cada usuario respectivamente</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Metodología Git Flow</h3>
+                <div class="container">
+                    <div class="info">
+
+                        <p>Ahora vamos a crear la metodología GitFlow</p>
+                        <p>Para ello crearemos otra rama llamada develop a partir de nuestra rama principal main</p>
+                        <img src="img/13.png">
+                        <p>Para cada mejora crearemos una feature a partir de la rama develop y cuando terminemos de
+                            hacer
+                            la mejora hacemos un merge con la rama develop para así poder implementarla</p>
+                        <p>Cuando queramos publicar una versión haremos una release sobre la rama develop para asi poder
+                            hacer un merge tanto con la rama main como con develop con las mejoras que queramos añadir a
+                            la versión</p>
+                        <p>Y finalmente si queremos arreglar un error que tengamos en la rama main crearemos la rama
+                            hotfix
+                            para arreglar los errores que haya en la rama principal y aplicaremos los cambios haciendo
+                            merge
+                            tanto en main como en develop para así arreglarlo de forma correcta en las dos ramas</p>
+                        <p>Para luego poder ver los cambios que hemos hecho y la estructura publicaremos la rama develop
+                            en
+                            el repositorio remoto</p>
+                        <img src="img/14.png">
+                        <p>También vamos a crear la rama gh-pages para así poder tener nuestra pagina html del
+                            repositorio
+                            visible y dentro pondremos la explicación de nuestro proyecto</p>
+                        <img src="img/15.png">
+                        <img src="img/16.png">
+                    </div>
+
+                </div>
+            </section>
+            <section>
+                <h3>Estructura Boilerplate</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>El proyecto utilizara la estructura boilerplate, y con esta estructura la pagina inicial incluirá la
+                            cabecera, la barra de navegación con acceso a Home y el footer</p>
+                        <p>La estructura es del siguiente repositorio (https://github.com/h5bp/html5-boilerplate)</p>
+                        <p>Para utilizar la estructura hacemos lo siguiente:</p>
+                        <i>npx create-html5-boilerplate . (Creamos la estructura boilerplate en la carpeta local)</i><br>
+                        <i>npm install</i><br>
+                        <i>npm run start (Para arrancar node)</i><br>
+                        <img src="img/17.png">
+                        <p>Diseñamos la pagina a nuestro gusto, en mi caso el resultado final es el siguiente:</p>
+                        <img src="img/18.png">
+                        <p>Y así ya podemos empezar con la metodología git flow sobre las ramas main y develop con la
+                            estructura boilerplate ya realizada</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Hooks</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Para crear los hooks utilizaremos husky</p>
+                        <i>npm install husky (Instalamos husky)</i><br>
+                        <p>Vamos al package.json y en scripts ponemos lo siguiente:</p>
+                        <i>"prepare": "husky install"</i><br>
+                        <img src="img/19.png">
+                        <p>Y finalmente ejecutamos:</p>
+                        <i>npm install (Para que nos cree la carpeta .husky)</i><br>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Hotfix</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Una vez creada la carpeta .husky dentro de esta crearemos un fichero llamado commit-msg</p>
+                        <img src="img/20.png">
+                        <p>Dentro de commit-msg pondremos lo siguiente:</p>
+                        <img src="img/21.png">
+                        <p>Esto hará que si queremos hacer un commit desde la rama hotfix debamos poner “A corregir
+                            por:” obligatoriamente.</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Checkout</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Ahora crearemos otro fichero llamado post-checkout</p>
+                        <img src="img/22.png">
+                        <p>Dentro de post-checkout pondremos lo siguiente:</p>
+                        <img src="img/23.png">
+                        <p>Esto hará que cuando hagamos un checkout de una rama a otra nos indique de que rama venimos y
+                            a que rama vamos</p>
+                        <img src="img/24.png">
+                        <p>Y finalmente lo que deberemos hacer es darle permisos de ejecucion a estos archivos</p>
+                        <img src="img/25.png">
+                        <p>Finalmente ya tendríamos el repositorio preparado, nosimg/35.png a duplicar los cambios en la rama
+                            develop y publicar los cambios en el repositorio remoto</p>
+                        <i>git add . (Añadimos los cambios)</i><br>
+                        <i>git commit -m "Estructura GitFlow + Boilerplate + Hooks" (Guardamos los cambios)</i><br>
+                        <i>git checkout develop (Cambiamos de rama)</i><br>
+                        <i>git merge main (Duplicamos los cambios realizados en la rama main a la develop)</i><br>
+                        <i>git push JoaquimRS main(Publicamos los cambios de main)</i><br>
+                        <i>git push JoaquimRS develop (Publicamos los cambios de develop)</i><br>
+                        <p>A partir de aquí ya utilizaremos la metodología gitflow junto a la estructura boilerplate</p>
+
+                    </div>
+                </div>
+            </section>
+        </article>
+        
+        <article id="ximo-ribera">
+            <h2>ximo-ribera</h2>
+            <section>
+                <h3>Crear 2 features</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Vamos a crear dos features, para eso partiremos del estado actual de la rama develop y crearemos
+                            una rama llamada feature/contenidoHTML</p>
+                        <i>git branch feature/contenidoHTML(Creamos la rama)</i><br>
+                        <i>git checkout feature/contenidoHTML (Nos movemos a la rama creada)</i><br>
+                        <img src="img/25.png">
+                        <p>Una vez en la rama feature/contenidoHTML añadiremos una explicación</p>
+                        <p>Resultado final:</p>
+                        <img src="img/26.png">
+                        <p>Pero antes de hacer el commit para guardar los cambios de la feature/contenidoHTML debemos
+                            crear un hook que verifique el correcto formato de los fichero html</p>
+                        <i>npm install eslint (Instalamos eslint)</i><br>
+                        <i>npm install eslint-plugin-html (Instalamos eslint para html)</i><br>
+                        <p>Creamos un fichero .eslintrc.json con la siguiente configuración</p>
+                        <img src="img/27.png">
+                        <p>Y creamos otro fichero en .husky llamado pre-commit con la siguiente información</p>
+                        <img src="img/28.png">
+                        <p>Le damos permisos de ejecucion:</p>
+                        <i>chmod +x pre-commit</i><br>
+                        <p>Y guardamos y publicamos los cambios:</p>
+                        <img src="img/29.png">
+                        <p>Resultado</p>
+                        <img src="img/30.png">
+                        <p>Ahora hacemos una pull request para unir la feature con la develop</p>
+                        <img src="img/31.png">
+                        <img src="img/32.png">
+                        <img src="img/33.png">
+                        <p>Y ya tendriamos la primera feature, solo quedaria actualizar el repositorio local haciendo un pull de
+                            la rama develop</p>
+                        <img src="img/34.png">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Feature/atributosHTML</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Partiendo de la rama develop creamos una rama llamada feature/atributosHTML</p>
+                        <img src="img/35.png">
+                        <p>Una vez en la rama feature/atributosHTML añadiremos una explicación</p>
+                        <p>Resultado final:</p>
+                        <img src="img/36.png">
+                        <p>Guardamos y publicamos los cambios:</p>
+                        <img src="img/37.png">
+                        <img src="img/38.png">
+                        <p>Ahora hacemos una pull request para unir la feature con la develop</p>
+                        <img src="img/31.png">
+                        <img src="img/39.png">
+                        <img src="img/40.png">
+                        <p>Solo quedaría actualizar el repositorio local haciendo un pull de la rama develop</p>
+                        <img src="img/41.png">
+
+                    </div>
+                </div>
+            </section>
+        </article>
+        <article id="donyet960">
+            <h2>Donyet960</h2>
+            <section>
+                <h3>Feature/estilos CSS</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Partiendo de la rama main creamos una rama llamada feature/estilosCSS</p>
+                        <img src="img/42.png">
+                        <p>Una vez en la rama feature/estilosCSS añadiremos una explicación</p>
+                        <p>Resultado final:</p>
+                        <img src="img/43.png">
+                        <p>Guardamos y publicamos los cambios:</p>
+                        <img src="img/44.png">
+                        <p>Ahora hacemos una pull request para unir la feature con la develop</p>
+                        <img src="img/31.png">
+                        <img src="img/45.png">
+                        <img src="img/46.png">
+                        <p>Solo quedaría actualizar el repositorio local haciendo un pull de la rama develop</p>
+                        <img src="img/47.png">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Release</h3>
+                <div class="container">
+                    <div class="info">
+                        <p>Para crear la release hay que situarse en la rama develop y crear la rama release_v1.0</p>
+                        <img src="img/48.png">
+                        <p>Con esta release lo que haremos sera publicar todas la features que hemos hecho y ponerle una
+                            etiqueta para deferenciar entre versiones, luego todo esto lo uniremos a la rama main</p>
+                        <i>git push Donyet960 release_v1.0 (Publicar la rama)</i><br>
+                        <p></p>
+                        <img src="img/49.png">
+                        <img src="img/50.png">
+                        <p>Ahora toca asignar la etiqueta v1.0 al merge que hemos hecho con la release en la rama main</p>
+                        <i>git checkout main (Cambiamos a la rama main)</i><br>
+                        <i>git pull Donyet960 main (Actualizamos la rama main con el repositorio remoto)</i><br>
+                        <i>git tag v1.0 dce4b2 (Asignamos la etiquet al merge que hemos hecho)</i><br>
+                        <i>git push --tags Donyet960 (Publicamos la etiqueta)</i><br>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <article id="joaquimrs2">
+            <h2>JoaquimRS</h2>
+            <section>
+                <div class="container">
+                    <div class="info">
+                        <p>Para crear el hotfix lo que haremos será crear un rama partiendo de main modificaremos el
+                            contenido que necesitemos y la devolveremos a la rama main</p>
+                        <i>git branch hotfix/mejorasV_1</i><br>
+                        <i>git checkout hotfix/mejorasV_1</i><br>
+                        <img src="img/51.png">
+                        <p>Modificamos el contenido del usuario ximo-ribera</p>
+                        <p>Resultado:</p>
+                        <img src="img/52.png">
+                        <p>Guardamos los cambios y publicamos la rama</p>
+                        <img src="img/53.png">
+                        <img src="img/54.png">
+                        <img src="img/55.png">
+                        <p>Ahora hacemos el merge de la rama hotfix/mejorasV_1 con main y develop y actualizamos con el
+                            repositorio remoto</p>
+                        <img src="img/56.png">
+                    </div>
+                </div>
+            </section>
+        </article>
+        <p>Y terminariamos la practica obligatoria, muchas gracias</p>
+    </main>
+    <footer>
+
+    </footer>
+
 </body>
+
 </html>
