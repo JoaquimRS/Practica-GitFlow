@@ -5,9 +5,36 @@
     <meta charset="UTF-8">
     <title>Practica GitFlow</title>
     <style type="text/css">
-        h1,
-        h2,
-        h3 {
+        body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        header, nav, main, footer{
+            width: 90%;
+        }
+        nav ul {
+            all: unset;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav li {
+            list-style: none;
+            width: 20%;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid black;    
+        }
+        nav a {
+            all: unset;
+            color: black;
+            width: 20%;
+            cursor: pointer;
+        }
+        h1{
             border-bottom: 1px solid black;
         }
 
@@ -19,7 +46,36 @@
             width: 300px;
             cursor: pointer;
         }
+        section {
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 10px;   
+            box-shadow: 5px 5px 10px;
+        }
     </style>
+    <script>
+        window.onload = () => {
+        // (A) GET ALL IMAGES
+        let all = document.getElementsByClassName("zoom");
+        
+        // (B) CLICK TO GO FULLSCREEN
+        if (all.length>0) { for (let i of all) {
+            i.onclick = () => {
+            // (B1) EXIT FULLSCREEN
+            if (document.fullscreenElement != null || document.webkitFullscreenElement != null) {
+                if (document.exitFullscreen) { document.exitFullscreen(); }
+                else { document.webkitCancelFullScreen(); }
+            }
+        
+            // (B2) ENTER FULLSCREEN
+            else {
+                if (i.requestFullscreen) { i.requestFullscreen(); }
+                else { i.webkitRequestFullScreen(); }
+            }
+            };
+        }}
+        };
+    </script>
 </head>
 
 <body>
@@ -49,7 +105,7 @@
                             pudieran escribir la interfaz de usuario, no obstante git con el
                             tiempo se ha convertido en un sistema de control de versiones con
                             funcionalidad plena.</p>
-                        <img src="img/linus_torvalds.jpg">
+                        <img src="img/linus_torvalds.jpg" class="zoom">
                     </div>
                 </div>
             </section>
@@ -68,7 +124,7 @@
                             Git nos permite recuperar el estado anterior de nuestro código para solucionar un error o
                             devolver el
                             código al punto en el que funcionaba bien.</p>
-                        <img src="img/git_branches.png">
+                        <img src="img/git_branches.png" class="zoom">
                         <p>Git tiene muchas ventajas</p>
                         <ul></ul>
                         <li>Desarrollo simultáneo</li>
@@ -149,7 +205,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <img src="img/gitflow.png">
+                        <img src="img/gitflow.png" class="zoom">
                     </div>
                 </div>
             </section>
@@ -162,7 +218,7 @@
                     <div class="info">
                         <p>Para crear un repositorio ejecutamos el comando</p>
                         <i>git init</i><br><br>
-                        <img src="img/1.png">
+                        <img src="img/1.png" class="zoom">
                         <p>Esto generará la carpeta oculta .git y creara el nombre de la rama que tengamos asignada por
                             defecto, en mi caso main</p>
                         <i>(git config --global init.defaultBranch main para modificar el nombre de la rama por defecto
@@ -170,14 +226,14 @@
                             main)</i><br><br>
                         <p>Ahora crearemos un fichero README.md con la descripción de nuestro proyecto y haremos el
                             primer commit</p>
-                        <img src="img/2.png">
+                        <img src="img/2.png" class="zoom">
                         <p>Luego tendremos que crear un repositorio en github, en mi caso lo he llamado Practica-GitFlow
                         </p>
-                        <img src="img/3.png">
+                        <img src="img/3.png" class="zoom">
                         <p>El siguiente paso sera enlazar nuestro repositorio local con el remoto de github, para ello
                             utilizaremos el comando</p>
                         <i>git remote add origin -link-</i><br><br>
-                        <img src="img/4.png">
+                        <img src="img/4.png" class="zoom">
                         <p>El -link- es la url que nos ofrece github cuando creamos el repositorio en mi caso:</p>
                         <p>https://github.com/JoaquimRS/Practica-GitFlow.git</p>
                         <p>Ahora publicamos nuestra rama local main al repositorio remoto con el comando</p>
@@ -185,22 +241,22 @@
                         <p>Seguidamente nos pedirá el token de nuestra cuenta de github</p>
                         <p>(https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-datasecure/
                             creating-a-personal-access-token para crear un token personal en github)</p>
-                        <img src="img/5.png">
+                        <img src="img/5.png" class="zoom">
                         <p>Y finalmente si vamos al repositorio que hemos creado el resultado será el siguiente:</p>
-                        <img src="img/6.png">
+                        <img src="img/6.png" class="zoom">
                         <p>Como vamos a tener 3 usuarios en nuestro repositorio debemos añadirlos como colaboradores
                             Para ello vamos a Settings → Collaborators → Add People</p>
-                        <img src="img/7.png">
+                        <img src="img/7.png" class="zoom">
                         <p>Ahora introducimos los usuarios que van a colaborar en nuestro proyecto. En mi caso
                             ximo-ribera,
                             Donyet960</p>
-                        <img src="img/8.png">
-                        <img src="img/9.png">
+                        <img src="img/8.png" class="zoom">
+                        <img src="img/9.png" class="zoom">
                         <p>Git nos enviara un correo para aceptar la invitación, mientras tanto los usuarios estaran
                             pendientes
                             de invitación.</p>
-                        <img src="img/10.png">
-                        <img src="img/11.png">
+                        <img src="img/10.png" class="zoom">
+                        <img src="img/11.png" class="zoom">
                         <p>Para poder publicar los cambios con diferentes usuarios tendremos que hacer lo siguiente</p>
                         <p>Borrar el origin</p>
                         <i>git remote remove origin</i><br><br>
@@ -209,7 +265,7 @@
                         <i>git remote add ximo-ribera
                             https://ximo-ribera@github.com/JoaquimRS/Practica-GitFlow.git</i><br><br>
                         <i>git remote add Donyet960 https://Donyet960@github.com/JoaquimRS/Practica-GitFlow.git</i><br><br>
-                        <img src="img/12.png">
+                        <img src="img/12.png" class="zoom">
                         <p>Así cada vez que hagamos el push tendremos que poner el nombre del usuario como origin para
                             diferenciarlo, y seguidamente pedirá el token de cada usuario respectivamente</p>
                     </div>
@@ -222,7 +278,7 @@
 
                         <p>Ahora vamos a crear la metodología GitFlow</p>
                         <p>Para ello crearemos otra rama llamada develop a partir de nuestra rama principal main</p>
-                        <img src="img/13.png">
+                        <img src="img/13.png" class="zoom">
                         <p>Para cada mejora crearemos una feature a partir de la rama develop y cuando terminemos de
                             hacer
                             la mejora hacemos un merge con la rama develop para así poder implementarla</p>
@@ -237,12 +293,12 @@
                         <p>Para luego poder ver los cambios que hemos hecho y la estructura publicaremos la rama develop
                             en
                             el repositorio remoto</p>
-                        <img src="img/14.png">
+                        <img src="img/14.png" class="zoom">
                         <p>También vamos a crear la rama gh-pages para así poder tener nuestra pagina html del
                             repositorio
                             visible y dentro pondremos la explicación de nuestro proyecto</p>
-                        <img src="img/15.png">
-                        <img src="img/16.png">
+                        <img src="img/15.png" class="zoom">
+                        <img src="img/16.png" class="zoom">
                     </div>
 
                 </div>
@@ -258,9 +314,9 @@
                         <i>npx create-html5-boilerplate . (Creamos la estructura boilerplate en la carpeta local)</i><br>
                         <i>npm install</i><br>
                         <i>npm run start (Para arrancar node)</i><br>
-                        <img src="img/17.png">
+                        <img src="img/17.png" class="zoom">
                         <p>Diseñamos la pagina a nuestro gusto, en mi caso el resultado final es el siguiente:</p>
-                        <img src="img/18.png">
+                        <img src="img/18.png" class="zoom">
                         <p>Y así ya podemos empezar con la metodología git flow sobre las ramas main y develop con la
                             estructura boilerplate ya realizada</p>
                     </div>
@@ -274,7 +330,7 @@
                         <i>npm install husky (Instalamos husky)</i><br>
                         <p>Vamos al package.json y en scripts ponemos lo siguiente:</p>
                         <i>"prepare": "husky install"</i><br>
-                        <img src="img/19.png">
+                        <img src="img/19.png" class="zoom">
                         <p>Y finalmente ejecutamos:</p>
                         <i>npm install (Para que nos cree la carpeta .husky)</i><br>
                     </div>
@@ -285,9 +341,9 @@
                 <div class="container">
                     <div class="info">
                         <p>Una vez creada la carpeta .husky dentro de esta crearemos un fichero llamado commit-msg</p>
-                        <img src="img/20.png">
+                        <img src="img/20.png" class="zoom">
                         <p>Dentro de commit-msg pondremos lo siguiente:</p>
-                        <img src="img/21.png">
+                        <img src="img/21.png" class="zoom">
                         <p>Esto hará que si queremos hacer un commit desde la rama hotfix debamos poner “A corregir
                             por:” obligatoriamente.</p>
                     </div>
@@ -298,14 +354,14 @@
                 <div class="container">
                     <div class="info">
                         <p>Ahora crearemos otro fichero llamado post-checkout</p>
-                        <img src="img/22.png">
+                        <img src="img/22.png" class="zoom">
                         <p>Dentro de post-checkout pondremos lo siguiente:</p>
-                        <img src="img/23.png">
+                        <img src="img/23.png" class="zoom">
                         <p>Esto hará que cuando hagamos un checkout de una rama a otra nos indique de que rama venimos y
                             a que rama vamos</p>
-                        <img src="img/24.png">
+                        <img src="img/24.png" class="zoom">
                         <p>Y finalmente lo que deberemos hacer es darle permisos de ejecucion a estos archivos</p>
-                        <img src="img/25.png">
+                        <img src="img/25.png" class="zoom">
                         <p>Finalmente ya tendríamos el repositorio preparado, nosimg/35.png a duplicar los cambios en la rama
                             develop y publicar los cambios en el repositorio remoto</p>
                         <i>git add . (Añadimos los cambios)</i><br>
@@ -331,31 +387,31 @@
                             una rama llamada feature/contenidoHTML</p>
                         <i>git branch feature/contenidoHTML(Creamos la rama)</i><br>
                         <i>git checkout feature/contenidoHTML (Nos movemos a la rama creada)</i><br>
-                        <img src="img/25.png">
+                        <img src="img/25.png" class="zoom">
                         <p>Una vez en la rama feature/contenidoHTML añadiremos una explicación</p>
                         <p>Resultado final:</p>
-                        <img src="img/26.png">
+                        <img src="img/26.png" class="zoom">
                         <p>Pero antes de hacer el commit para guardar los cambios de la feature/contenidoHTML debemos
                             crear un hook que verifique el correcto formato de los fichero html</p>
                         <i>npm install eslint (Instalamos eslint)</i><br>
                         <i>npm install eslint-plugin-html (Instalamos eslint para html)</i><br>
                         <p>Creamos un fichero .eslintrc.json con la siguiente configuración</p>
-                        <img src="img/27.png">
+                        <img src="img/27.png" class="zoom">
                         <p>Y creamos otro fichero en .husky llamado pre-commit con la siguiente información</p>
-                        <img src="img/28.png">
+                        <img src="img/28.png" class="zoom">
                         <p>Le damos permisos de ejecucion:</p>
                         <i>chmod +x pre-commit</i><br>
                         <p>Y guardamos y publicamos los cambios:</p>
-                        <img src="img/29.png">
+                        <img src="img/29.png" class="zoom">
                         <p>Resultado</p>
-                        <img src="img/30.png">
+                        <img src="img/30.png" class="zoom">
                         <p>Ahora hacemos una pull request para unir la feature con la develop</p>
-                        <img src="img/31.png">
-                        <img src="img/32.png">
-                        <img src="img/33.png">
+                        <img src="img/31.png" class="zoom">
+                        <img src="img/32.png" class="zoom">
+                        <img src="img/33.png" class="zoom">
                         <p>Y ya tendriamos la primera feature, solo quedaria actualizar el repositorio local haciendo un pull de
                             la rama develop</p>
-                        <img src="img/34.png">
+                        <img src="img/34.png" class="zoom">
                     </div>
                 </div>
             </section>
@@ -364,19 +420,19 @@
                 <div class="container">
                     <div class="info">
                         <p>Partiendo de la rama develop creamos una rama llamada feature/atributosHTML</p>
-                        <img src="img/35.png">
+                        <img src="img/35.png" class="zoom">
                         <p>Una vez en la rama feature/atributosHTML añadiremos una explicación</p>
                         <p>Resultado final:</p>
-                        <img src="img/36.png">
+                        <img src="img/36.png" class="zoom">
                         <p>Guardamos y publicamos los cambios:</p>
-                        <img src="img/37.png">
-                        <img src="img/38.png">
+                        <img src="img/37.png" class="zoom">
+                        <img src="img/38.png" class="zoom">
                         <p>Ahora hacemos una pull request para unir la feature con la develop</p>
-                        <img src="img/31.png">
-                        <img src="img/39.png">
-                        <img src="img/40.png">
+                        <img src="img/31.png" class="zoom">
+                        <img src="img/39.png" class="zoom">
+                        <img src="img/40.png" class="zoom">
                         <p>Solo quedaría actualizar el repositorio local haciendo un pull de la rama develop</p>
-                        <img src="img/41.png">
+                        <img src="img/41.png" class="zoom">
 
                     </div>
                 </div>
@@ -389,18 +445,18 @@
                 <div class="container">
                     <div class="info">
                         <p>Partiendo de la rama main creamos una rama llamada feature/estilosCSS</p>
-                        <img src="img/42.png">
+                        <img src="img/42.png" class="zoom">
                         <p>Una vez en la rama feature/estilosCSS añadiremos una explicación</p>
                         <p>Resultado final:</p>
-                        <img src="img/43.png">
+                        <img src="img/43.png" class="zoom">
                         <p>Guardamos y publicamos los cambios:</p>
-                        <img src="img/44.png">
+                        <img src="img/44.png" class="zoom">
                         <p>Ahora hacemos una pull request para unir la feature con la develop</p>
-                        <img src="img/31.png">
-                        <img src="img/45.png">
-                        <img src="img/46.png">
+                        <img src="img/31.png" class="zoom">
+                        <img src="img/45.png" class="zoom">
+                        <img src="img/46.png" class="zoom">
                         <p>Solo quedaría actualizar el repositorio local haciendo un pull de la rama develop</p>
-                        <img src="img/47.png">
+                        <img src="img/47.png" class="zoom">
                     </div>
                 </div>
             </section>
@@ -409,13 +465,13 @@
                 <div class="container">
                     <div class="info">
                         <p>Para crear la release hay que situarse en la rama develop y crear la rama release_v1.0</p>
-                        <img src="img/48.png">
+                        <img src="img/48.png" class="zoom">
                         <p>Con esta release lo que haremos sera publicar todas la features que hemos hecho y ponerle una
                             etiqueta para deferenciar entre versiones, luego todo esto lo uniremos a la rama main</p>
                         <i>git push Donyet960 release_v1.0 (Publicar la rama)</i><br>
                         <p></p>
-                        <img src="img/49.png">
-                        <img src="img/50.png">
+                        <img src="img/49.png" class="zoom">
+                        <img src="img/50.png" class="zoom">
                         <p>Ahora toca asignar la etiqueta v1.0 al merge que hemos hecho con la release en la rama main</p>
                         <i>git checkout main (Cambiamos a la rama main)</i><br>
                         <i>git pull Donyet960 main (Actualizamos la rama main con el repositorio remoto)</i><br>
@@ -434,17 +490,17 @@
                             contenido que necesitemos y la devolveremos a la rama main</p>
                         <i>git branch hotfix/mejorasV_1</i><br>
                         <i>git checkout hotfix/mejorasV_1</i><br>
-                        <img src="img/51.png">
+                        <img src="img/51.png" class="zoom">
                         <p>Modificamos el contenido del usuario ximo-ribera</p>
                         <p>Resultado:</p>
-                        <img src="img/52.png">
+                        <img src="img/52.png" class="zoom">
                         <p>Guardamos los cambios y publicamos la rama</p>
-                        <img src="img/53.png">
-                        <img src="img/54.png">
-                        <img src="img/55.png">
+                        <img src="img/53.png" class="zoom">
+                        <img src="img/54.png" class="zoom">
+                        <img src="img/55.png" class="zoom">
                         <p>Ahora hacemos el merge de la rama hotfix/mejorasV_1 con main y develop y actualizamos con el
                             repositorio remoto</p>
-                        <img src="img/56.png">
+                        <img src="img/56.png" class="zoom">
                     </div>
                 </div>
             </section>
